@@ -1,25 +1,30 @@
-In this project, you will build a simple command line interface (CLI) to fetch the recent activity of a GitHub user and display it in the terminal. This project will help you practice your programming skills, including working with APIs, handling JSON data, and building a simple CLI application.
+# Setting Up the Virtual Environment and Running the Application
 
-Requirements
-The application should run from the command line, accept the GitHub username as an argument, fetch the user’s recent activity using the GitHub API, and display it in the terminal. The user should be able to:
+1- Ensure you're in the `./user_activity` directory, then run the following commands:
 
-Provide the GitHub username as an argument when running the CLI.
+```bash
+py -m pip cache purge
+py -m venv .\.venv
+.\.venv\Scripts\activate
+.\.venv\Scripts\python.exe -m pip cache purge
+.\.venv\Scripts\python.exe -m pip install --upgrade pip wheel build setuptools
+.\.venv\Scripts\python.exe -m pip --no-cache-dir install --use-pep517 -e .
+```
+
+2- Cleaning "__pycache__" from the project:
+
+```powershell
+Get-ChildItem -Recurse -Directory -Filter "__pycache__" | Remove-Item -Recurse -Force
+```
+
+or
+
+```bash
+for /d /r %i in (__pycache__) do rmdir /s /q "%i"
+```
+
+3- Launching the Application, execute:
+
+```bash
 github-activity <username>
-Fetch the recent activity of the specified GitHub user using the GitHub API. You can use the following endpoint to fetch the user’s activity:
-
-# <https://api.github.com/users/><username>/events
-
-# Example: <https://api.github.com/users/kamranahmedse/events>
-
-Display the fetched activity in the terminal.
-Output:
-
-- Pushed 3 commits to kamranahmedse/developer-roadmap
-- Opened a new issue in kamranahmedse/developer-roadmap
-- Starred kamranahmedse/developer-roadmap
-- ...
-You can learn more about the GitHub API here.
-Handle errors gracefully, such as invalid usernames or API failures.
-Use a programming language of your choice to build this project.
-Do not use any external libraries or frameworks to fetch the GitHub activity.
-If you are looking to build a more advanced version of this project, you can consider adding features like filtering the activity by event type, displaying the activity in a more structured format, or caching the fetched data to improve performance. You can also explore other endpoints of the GitHub API to fetch additional information about the user or their repositories.
+```
