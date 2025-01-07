@@ -24,34 +24,34 @@ def get_events():
     """ fetch data """
     username = get_args()
     if not username:
-        return
+        return ''
 
     url = GITHUB_URL.replace('<username>', username)
     response = requests.get(url)
 
     if response.status_code == 503:
         print("Service unavailable")
-        return
+        return ''
 
     if response.status_code == 403:
         print("Event is Forbidden")
-        return
+        return ''
 
     if response.status_code == 304:
         print("Not modified")
-        return
+        return ''
 
     if response.status_code == 404:
-        print(f" The Username : {username} isn't found\n response: \n{response}")
-        return
+        print(f" The Username : {username} isn't found")
+        return ''
 
     if response.status_code != 200:
         print("Error !")
-        return
+        return ''
 
     events = response.json()
     if not events:
         print(f"No Data retrieved of : {username}")
-        return
+        return ''
 
     return EventParser(events).report
