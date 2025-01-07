@@ -1,4 +1,8 @@
-# Setting Up the Virtual Environment and Running the Application
+# Project URL:
+
+https://roadmap.sh/projects/github-user-activity
+
+## Setting Up the Virtual Environment and Running the Application
 
 1- Ensure you're in the `./user_activity` directory, then run the following commands:
 
